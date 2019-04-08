@@ -1,0 +1,9 @@
+<launch>
+  <arg name="bag_name" default="data/test.bag"/>
+  <arg name="save_name" default="data/calib_images"/>
+  <node pkg="rosbag" type="play" name="rosbag" args="$(arg bag_name)"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" output="screen" cwd="node">
+    <remap from="image" to="/image"/>
+    <param name="filename_format" value="$(arg save_name)/frame%06i.jpg"/>
+  </node>
+</launch>

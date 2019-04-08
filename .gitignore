@@ -1,3 +1,7 @@
+# Ignore
+calibrate
+rectify
+
 # Prerequisites
 *.d
 
